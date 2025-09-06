@@ -10,15 +10,18 @@
   <meta name="theme-color" content="#111315" />
 </head>
 <body>
+
   <header class="topbar">
     <div class="brand">
       <img src="icons/icon-192x192.png" alt="logo" />
       <h1>Make My Outfit</h1>
     </div>
     <button id="installBtn" class="btn ghost" title="Install PWA">Install</button>
+    <button id="apiKeyBtn" class="btn small">Set API Key</button>
   </header>
 
   <main class="container">
+
     <!-- USER INFO -->
     <section class="card">
       <h2>1) Your Info</h2>
@@ -49,11 +52,11 @@
         </div>
 
         <div class="mt-2">
-          <label>Upload full-body photo (optional, front-facing, minimal baggy clothes)
+          <label>Upload full-body photo (optional)
             <input id="userPhoto" type="file" accept="image/*" />
           </label>
-          <button id="estimateBtn" class="btn small" title="Estimate measurements from photo">Estimate from photo</button>
-          <small class="muted">Estimation uses height and your photo to approximate other measurements.</small>
+          <button id="estimateBtn" class="btn small">Estimate from photo</button>
+          <small class="muted">Uses height and photo to approximate other measurements.</small>
         </div>
       </details>
     </section>
@@ -61,18 +64,18 @@
     <!-- OUTFIT PROMPT -->
     <section class="card">
       <h2>2) Outfit Prompt</h2>
-      <textarea id="promptInput" rows="4" placeholder="Describe the outfit you want... (e.g., ‘A blue dress for a wedding’)"></textarea>
+      <textarea id="promptInput" rows="4" placeholder="Describe the outfit you want..."></textarea>
       <div class="grid two mt-2">
         <button id="generateBtn" class="btn primary">Generate Outfit</button>
         <button id="reviseBtn" class="btn" disabled>Revise Last Image</button>
       </div>
-      <label class="mt-2">Revision prompt (e.g., “make the hem shorter”, “add long sleeves”)
+      <label class="mt-2">Revision prompt
         <input id="revisionInput" type="text" placeholder="Describe your edit..." />
       </label>
       <div class="mt-2">
         <label class="checkbox">
           <input type="checkbox" id="tryOnToggle" />
-          <span>Try it on me (merge with my uploaded photo)</span>
+          <span>Try it on me (merge with uploaded photo)</span>
         </label>
       </div>
       <details class="mt-2">
@@ -105,26 +108,27 @@
         <pre id="errorMessage"></pre>
       </div>
     </section>
+
   </main>
 
   <!-- API KEY DIALOG -->
   <dialog id="apiKeyDialog">
     <form method="dialog">
-      <h3>Enter your API key</h3>
-      <p class="muted">Your key is stored locally in your browser and never uploaded.</p>
-      <input id="apiKeyInput" type="password" placeholder="AIza..." />
+      <h3>Enter your License key</h3>
+      <p class="muted">Stored locally in your browser; never uploaded.</p>
+      <input id="apiKeyInput" type="text" placeholder="sk-xxxx..." />
       <menu>
         <button id="saveApiKeyBtn" class="btn primary">Save</button>
         <button id="cancelApiKeyBtn" class="btn">Cancel</button>
-      </menu>      
+      </menu>
     </form>
   </dialog>
 
   <footer class="footer">
-    <button id="apiKeyBtn" class="btn small">Set API Key</button>
     <span class="muted">PWA ready • Offline caching enabled</span>
   </footer>
 
   <script src="app.js"></script>
 </body>
 </html>
+
